@@ -1,0 +1,232 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/abyss-lab/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/abyss-lab/playwright.config.ts",
+    "rootDir": "/workspace/abyss-lab/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/abyss-lab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/abyss-lab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/abyss-lab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/abyss-lab/tests",
+        "snapshotDir": "/workspace/abyss-lab/tests",
+        "testIgnore": [],
+        "testMatch": "**/browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:5173",
+          "browserName": "chromium",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": [
+              "--no-sandbox"
+            ]
+          },
+          "trace": "off",
+          "screenshot": "only-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "work/evidence/browser-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev -- --port 5173 --strictPort",
+      "url": "http://127.0.0.1:5173",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "browser.spec.ts",
+      "file": "browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "desktop browser integration",
+          "file": "browser.spec.ts",
+          "line": 62,
+          "column": 6,
+          "specs": [
+            {
+              "title": "renders, responds to care, advances at measured speed and pauses cleanly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "measurement",
+                      "description": "Target 4×; displayed 3.87×; independent tick/wall 4.25×; dropped 3.28 simulated s; 推进延迟 实测 3.87× / 目标 4×运行诊断 +"
+                    },
+                    {
+                      "type": "overload",
+                      "description": "{\"before\":3.28,\"dropped\":4.15,\"status\":\"推进延迟 实测 3.57× / 目标 4×运行诊断 +\"}"
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 40815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T02:06:27.591Z",
+                      "annotations": [
+                        {
+                          "type": "measurement",
+                          "description": "Target 4×; displayed 3.87×; independent tick/wall 4.25×; dropped 3.28 simulated s; 推进延迟 实测 3.87× / 目标 4×运行诊断 +"
+                        },
+                        {
+                          "type": "overload",
+                          "description": "{\"before\":3.28,\"dropped\":4.15,\"status\":\"推进延迟 实测 3.57× / 目标 4×运行诊断 +\"}"
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "actual-speed-samples",
+                          "contentType": "application/json",
+                          "body": "WwogIHsKICAgICJ3YWxsIjogMjczNjYuNjk5OTk5OTk5OTUzLAogICAgInRpY2siOiAxMjMyLAogICAgImFjdHVhbCI6IDMuOTcsCiAgICAic3RhdHVzIjogIua1i+mHj+S4rSDlrp7mtYsgMy45N8OXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyNzQ2Ny42OTk5OTk5OTk5NTMsCiAgICAidGljayI6IDEyMzIsCiAgICAiYWN0dWFsIjogMy45NywKICAgICJzdGF0dXMiOiAi5rWL6YeP5LitIOWunua1iyAzLjk3w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI3NTc3LAogICAgInRpY2siOiAxMjkyLAogICAgImFjdHVhbCI6IDMuOTgsCiAgICAic3RhdHVzIjogIua1i+mHj+S4rSDlrp7mtYsgMy45OMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyNzY5MC42MDAwMDAwMDAwOTMsCiAgICAidGljayI6IDEyOTIsCiAgICAiYWN0dWFsIjogMy45OCwKICAgICJzdGF0dXMiOiAi5rWL6YeP5LitIOWunua1iyAzLjk4w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI3ODE2LjM5OTk5OTk5OTkwNywKICAgICJ0aWNrIjogMTM0MCwKICAgICJhY3R1YWwiOiAzLjk4LAogICAgInN0YXR1cyI6ICLmtYvph4/kuK0g5a6e5rWLIDMuOTjDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMjc5MjYuMzAwMDAwMDAwMDQ3LAogICAgInRpY2siOiAxMzQwLAogICAgImFjdHVhbCI6IDMuOTgsCiAgICAic3RhdHVzIjogIua1i+mHj+S4rSDlrp7mtYsgMy45OMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyODA0MC42MDAwMDAwMDAwOTMsCiAgICAidGljayI6IDE0MDAsCiAgICAiYWN0dWFsIjogMy45OSwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyAzLjk5w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI4MjEyLjMwMDAwMDAwMDA0NywKICAgICJ0aWNrIjogMTQ0OCwKICAgICJhY3R1YWwiOiAzLjk5LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDMuOTnDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMjgzNTUuNjAwMDAwMDAwMDkzLAogICAgInRpY2siOiAxNDQ4LAogICAgImFjdHVhbCI6IDMuOTksCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgMy45OcOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyODQ3My42MDAwMDAwMDAwOTMsCiAgICAidGljayI6IDE1MDAsCiAgICAiYWN0dWFsIjogMy45OSwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyAzLjk5w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI4NjE2LjYwMDAwMDAwMDA5MywKICAgICJ0aWNrIjogMTU0OCwKICAgICJhY3R1YWwiOiAzLjk5LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDMuOTnDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMjg3NTkuODAwMDAwMDAwMDQ3LAogICAgInRpY2siOiAxNTQ4LAogICAgImFjdHVhbCI6IDMuOTksCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgMy45OcOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyODg3OC4zMDAwMDAwMDAwNDcsCiAgICAidGljayI6IDE2MDAsCiAgICAiYWN0dWFsIjogMy45OSwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyAzLjk5w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI5MDE4LjUsCiAgICAidGljayI6IDE2NDgsCiAgICAiYWN0dWFsIjogMy45OSwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyAzLjk5w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI5MTIzLjgwMDAwMDAwMDA0NywKICAgICJ0aWNrIjogMTY0OCwKICAgICJhY3R1YWwiOiAzLjk5LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDMuOTnDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMjkyNzQuODk5OTk5OTk5OTA3LAogICAgInRpY2siOiAxNzAwLAogICAgImFjdHVhbCI6IDMuOTksCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgMy45OcOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyOTM4MSwKICAgICJ0aWNrIjogMTcwMCwKICAgICJhY3R1YWwiOiAzLjk5LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDMuOTnDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMjk0ODYuMTk5OTk5OTk5OTUzLAogICAgInRpY2siOiAxNzQ4LAogICAgImFjdHVhbCI6IDQsCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgNC4wMMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAyOTYxNC42MDAwMDAwMDAwOTMsCiAgICAidGljayI6IDE3NDgsCiAgICAiYWN0dWFsIjogNCwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyA0LjAww5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDI5NzM5Ljg5OTk5OTk5OTkwNywKICAgICJ0aWNrIjogMTgwNCwKICAgICJhY3R1YWwiOiA0LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDQuMDDDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMzAwMTcuNjk5OTk5OTk5OTUzLAogICAgInRpY2siOiAxODU2LAogICAgImFjdHVhbCI6IDQsCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgNC4wMMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAzMDI3NS44OTk5OTk5OTk5MDcsCiAgICAidGljayI6IDE5MTYsCiAgICAiYWN0dWFsIjogNCwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyA0LjAww5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDMwNTM2Ljg5OTk5OTk5OTkwNywKICAgICJ0aWNrIjogMTk4MCwKICAgICJhY3R1YWwiOiA0LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDQuMDDDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMzA3NjQuNjAwMDAwMDAwMDkzLAogICAgInRpY2siOiAyMDQwLAogICAgImFjdHVhbCI6IDQsCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgNC4wMMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAzMDkxMiwKICAgICJ0aWNrIjogMjA5MiwKICAgICJhY3R1YWwiOiA0LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDQuMDDDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMzEwMzUuMzAwMDAwMDAwMDQ3LAogICAgInRpY2siOiAyMDkyLAogICAgImFjdHVhbCI6IDQsCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgNC4wMMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAzMTE2Ny4zMDAwMDAwMDAwNDcsCiAgICAidGljayI6IDIxNDQsCiAgICAiYWN0dWFsIjogNCwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyA0LjAww5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDMxMzE1LjY5OTk5OTk5OTk1MywKICAgICJ0aWNrIjogMjE5MiwKICAgICJhY3R1YWwiOiA0LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDQuMDDDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMzE0MjcuNSwKICAgICJ0aWNrIjogMjE5MiwKICAgICJhY3R1YWwiOiA0LAogICAgInN0YXR1cyI6ICLov5DooYzmraPluLgg5a6e5rWLIDQuMDDDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMDIKICB9LAogIHsKICAgICJ3YWxsIjogMzE1ODYuODAwMDAwMDAwMDQ3LAogICAgInRpY2siOiAyMjQwLAogICAgImFjdHVhbCI6IDQsCiAgICAic3RhdHVzIjogIui/kOihjOato+W4uCDlrp7mtYsgNC4wMMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4wMgogIH0sCiAgewogICAgIndhbGwiOiAzMjAxOS42OTk5OTk5OTk5NTMsCiAgICAidGljayI6IDIyOTIsCiAgICAiYWN0dWFsIjogNCwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyA0LjAww5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDMyNDgzLjUsCiAgICAidGljayI6IDIzODAsCiAgICAiYWN0dWFsIjogNCwKICAgICJzdGF0dXMiOiAi6L+Q6KGM5q2j5bi4IOWunua1iyA0LjAww5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjAyCiAgfSwKICB7CiAgICAid2FsbCI6IDMyNzkwLjg5OTk5OTk5OTkxLAogICAgInRpY2siOiAyNDc2LAogICAgImFjdHVhbCI6IDMuODcsCiAgICAic3RhdHVzIjogIuaOqOi/m+W7tui/nyDlrp7mtYsgMy44N8OXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4yOAogIH0sCiAgewogICAgIndhbGwiOiAzMzAyMCwKICAgICJ0aWNrIjogMjU1MiwKICAgICJhY3R1YWwiOiAzLjg3LAogICAgInN0YXR1cyI6ICLmjqjov5vlu7bov58g5a6e5rWLIDMuODfDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMjgKICB9LAogIHsKICAgICJ3YWxsIjogMzMyNDYuNjk5OTk5OTk5OTUsCiAgICAidGljayI6IDI2MDQsCiAgICAiYWN0dWFsIjogMy44NywKICAgICJzdGF0dXMiOiAi5o6o6L+b5bu26L+fIOWunua1iyAzLjg3w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjI4CiAgfSwKICB7CiAgICAid2FsbCI6IDMzNDA3LjE5OTk5OTk5OTk1LAogICAgInRpY2siOiAyNjYwLAogICAgImFjdHVhbCI6IDMuODcsCiAgICAic3RhdHVzIjogIuaOqOi/m+W7tui/nyDlrp7mtYsgMy44N8OXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4yOAogIH0sCiAgewogICAgIndhbGwiOiAzMzY0NC4zMDAwMDAwMDAwNSwKICAgICJ0aWNrIjogMjcxMiwKICAgICJhY3R1YWwiOiAzLjg3LAogICAgInN0YXR1cyI6ICLmjqjov5vlu7bov58g5a6e5rWLIDMuODfDlyAvIOebruaghyA0w5fov5DooYzor4rmlq0gKyIsCiAgICAiZHJvcHBlZCI6IDMuMjgKICB9LAogIHsKICAgICJ3YWxsIjogMzM4NTguMzk5OTk5OTk5OTEsCiAgICAidGljayI6IDI3NjgsCiAgICAiYWN0dWFsIjogMy44NywKICAgICJzdGF0dXMiOiAi5o6o6L+b5bu26L+fIOWunua1iyAzLjg3w5cgLyDnm67moIcgNMOX6L+Q6KGM6K+K5patICsiLAogICAgImRyb3BwZWQiOiAzLjI4CiAgfSwKICB7CiAgICAid2FsbCI6IDM0MTA0LAogICAgInRpY2siOiAyODIwLAogICAgImFjdHVhbCI6IDMuODgsCiAgICAic3RhdHVzIjogIuaOqOi/m+W7tui/nyDlrp7mtYsgMy44OMOXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4yOAogIH0sCiAgewogICAgIndhbGwiOiAzNDM0MC41LAogICAgInRpY2siOiAyODg0LAogICAgImFjdHVhbCI6IDMuODcsCiAgICAic3RhdHVzIjogIuaOqOi/m+W7tui/nyDlrp7mtYsgMy44N8OXIC8g55uu5qCHIDTDl+i/kOihjOiviuaWrSArIiwKICAgICJkcm9wcGVkIjogMy4yOAogIH0KXQ=="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fbeac1b2decfba2c3acd-f6d5083fe70665f0de8c",
+              "file": "browser.spec.ts",
+              "line": 65,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "mobile viewport and touch emulation",
+          "file": "browser.spec.ts",
+          "line": 241,
+          "column": 6,
+          "specs": [
+            {
+              "title": "fits a narrow viewport and maps real touch pointer input into the world",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15781,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-27T02:07:10.130Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fbeac1b2decfba2c3acd-63ab6c5517679df9d52c",
+              "file": "browser.spec.ts",
+              "line": 249,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T02:06:22.100Z",
+    "duration": 64111.644,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

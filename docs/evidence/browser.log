@@ -1,0 +1,18 @@
+
+> abyss-lab@0.1.0 test:browser
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+(node:4055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser.spec.ts:65:3 › desktop browser integration › renders, responds to care, advances at measured speed and pauses cleanly (40.8s)
+  ✓  2 tests/browser.spec.ts:249:3 › mobile viewport and touch emulation › fits a narrow viewport and maps real touch pointer input into the world (15.8s)
+
+  2 passed (1.1m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

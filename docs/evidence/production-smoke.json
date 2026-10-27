@@ -1,0 +1,10 @@
+{
+  "source": "dist/abyss-lab-preview.html",
+  "title": "Abyss Lab · 深渊实验室",
+  "startTick": 85,
+  "endTick": 504,
+  "feeding": true,
+  "paused": true,
+  "externalHttpRequests": [],
+  "errors": []
+}

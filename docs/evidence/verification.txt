@@ -1,0 +1,59 @@
+$ npm run typecheck
+
+> abyss-lab@0.1.0 typecheck
+> tsc --noEmit
+
+
+exit=0 elapsed=30.83s
+
+$ npm test
+
+> abyss-lab@0.1.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/abyss-lab
+
+ ✓ tests/integration.test.ts (2 tests) 827ms
+   ✓ clock and simulation integration > replays the same command timeline identically at 30, 60 and 120 render fps  602ms
+ ✓ tests/runtime.test.ts (15 tests) 170ms
+ ✓ tests/coordinates.test.ts (5 tests) 40ms
+ ✓ tests/core.test.ts (18 tests) 2950ms
+   ✓ deterministic simulation > replays a seed and command timeline exactly, independent of other worlds  912ms
+   ✓ deterministic simulation > eventually rests and resumes exploration under ordinary passive care  405ms
+   ✓ simulation invariants > preserves finite bounded vitals and positions over 15 simulated minutes  1145ms
+
+ Test Files  4 passed (4)
+      Tests  40 passed (40)
+   Start at  01:54:11
+   Duration  5.65s (transform 1.08s, setup 0ms, collect 1.77s, tests 3.99s, environment 5ms, prepare 2.66s)
+
+
+exit=0 elapsed=9.82s
+
+$ npm run build
+
+> abyss-lab@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 35 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.81 kB │ gzip:  0.55 kB
+dist/assets/index-BeII99xW.css   17.71 kB │ gzip:  4.69 kB
+dist/assets/index-CaCYmeCk.js   258.01 kB │ gzip: 82.96 kB
+✓ built in 2.88s
+
+exit=0 elapsed=11.11s
+
+$ git diff --check
+
+exit=0 elapsed=0.04s
+
+After UI review fixes (paused feedback, primary-button guard, coarse-pointer tap targets):
+$ npm run typecheck && npm run build
+TypeScript exit=0
+Vite v7.3.7: 35 modules transformed; build exit=0
+dist/index.html 0.81 kB; CSS 17.88 kB; JS 257.81 kB (gzip 82.87 kB)

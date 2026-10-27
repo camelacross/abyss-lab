@@ -1,0 +1,72 @@
+
+> abyss-lab@0.1.0 test:browser
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+(node:3526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/browser.spec.ts:65:3 › desktop browser integration › renders, responds to care, advances at measured speed and pauses cleanly (46.8s)
+(node:3701) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 tests/browser.spec.ts:200:3 › mobile viewport and touch emulation › fits a narrow viewport and maps real touch pointer input into the world (18.7s)
+
+
+  1) tests/browser.spec.ts:65:3 › desktop browser integration › renders, responds to care, advances at measured speed and pauses cleanly
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.diagnostics summary')
+    Expected substring: "运行正常"
+    Received string:    "推进延迟 实测 2.48× / 目标 4×运行诊断 +"
+    Timeout: 8000ms
+
+    Call log:
+      - Expect "toContainText" locator('.diagnostics summary') with timeout 8000ms
+      - waiting for locator('.diagnostics summary')
+        - locator resolved to <summary>…</summary>
+        - unexpected value "测量中 实测 3.96× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "测量中 实测 3.98× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 3.98× / 目标 4×运行诊断 +"
+        2 × locator resolved to <summary>…</summary>
+          - unexpected value "推进延迟 实测 3.99× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 0.97× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 1.63× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 2.48× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 2.52× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 1.58× / 目标 4×运行诊断 +"
+        - locator resolved to <summary>…</summary>
+        - unexpected value "推进延迟 实测 2.48× / 目标 4×运行诊断 +"
+
+
+      162 |     ).toHaveAttribute("aria-pressed", "true");
+      163 |     await expect(page.locator(".diagnostics summary")).toContainText("目标 4×");
+    > 164 |     await expect(page.locator(".diagnostics summary")).toContainText(
+          |                                                        ^
+      165 |       "运行正常",
+      166 |     );
+      167 |     const actual = Number(
+        at /workspace/abyss-lab/tests/browser.spec.ts:164:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/browser-desktop-browser-in-35017-ed-speed-and-pauses-cleanly/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/browser-desktop-browser-in-35017-ed-speed-and-pauses-cleanly/error-context.md
+
+  1 failed
+    tests/browser.spec.ts:65:3 › desktop browser integration › renders, responds to care, advances at measured speed and pauses cleanly
+  1 passed (1.5m)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
