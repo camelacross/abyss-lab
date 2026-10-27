@@ -14,7 +14,7 @@ export default defineConfig({
     ["json", { outputFile: "work/evidence/browser-results.json" }],
   ],
   use: {
-    baseURL: "http://127.0.0.1:5173",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:5173/",
     browserName: "chromium",
     launchOptions: {
       // Reuse a provisioned Chromium; no browser download is needed in cloud QA.
@@ -28,10 +28,12 @@ export default defineConfig({
     trace: "off",
     screenshot: "only-on-failure",
   },
-  webServer: {
-    command: "npm run dev -- --port 5173 --strictPort",
-    url: "http://127.0.0.1:5173",
-    reuseExistingServer: true,
-    timeout: 30_000,
-  },
+  webServer: process.env.PLAYWRIGHT_BASE_URL
+    ? undefined
+    : {
+        command: "npm run dev -- --port 5173 --strictPort",
+        url: "http://127.0.0.1:5173",
+        reuseExistingServer: true,
+        timeout: 30_000,
+      },
 });

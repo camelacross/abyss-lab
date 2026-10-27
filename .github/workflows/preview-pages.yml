@@ -1,0 +1,98 @@
+name: Deploy P0-P1 preview to GitHub Pages
+
+on:
+  push:
+    branches: [feat/p0-p1-living-prototype]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: abyss-lab-pages-preview
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/feat/p0-p1-living-prototype'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Record deployed source
+        run: |
+          node --input-type=module -e "import{writeFileSync}from'node:fs';writeFileSync('dist/preview.json',JSON.stringify({commit:process.env.GITHUB_SHA,branch:'feat/p0-p1-living-prototype',pullRequest:1})+'\n')"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy preview
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Deployment summary
+        env:
+          PREVIEW_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          echo "Preview: $PREVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Verify deployed commit
+        env:
+          PREVIEW_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          const url = new URL('preview.json', process.env.PREVIEW_URL);
+          let verified = false;
+          for (let attempt = 0; attempt < 12; attempt++) {
+            const response = await fetch(url, {cache: 'no-store'});
+            if (response.ok) {
+              const metadata = await response.json();
+              if (metadata.commit === process.env.GITHUB_SHA) { verified = true; break; }
+            }
+            await new Promise(resolve => setTimeout(resolve, 5000));
+          }
+          assert(verified, 'Deployed commit does not match this workflow');
+          console.log('Verified live deployment:', url.href, process.env.GITHUB_SHA);
+          JS
+      - name: Test live desktop and touch interactions
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: npm run test:browser
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-preview-browser-evidence
+          path: |
+            work/evidence/
+            test-results/

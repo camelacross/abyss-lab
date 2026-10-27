@@ -66,7 +66,7 @@ test.describe("desktop browser integration", () => {
     page,
   }) => {
     const errors = collectErrors(page);
-    await page.goto("/");
+    await page.goto("./");
     await expect(page).toHaveTitle("Abyss Lab · 深渊实验室");
     await expectRenderedCanvas(page);
     await page.screenshot({
@@ -221,12 +221,10 @@ test.describe("desktop browser integration", () => {
       type: "measurement",
       description: `Target 4×; displayed ${last.actual.toFixed(2)}×; independent tick/wall ${observed.toFixed(2)}×; dropped ${last.dropped.toFixed(2)} simulated s; ${last.status}`,
     });
-    await test
-      .info()
-      .attach("actual-speed-samples", {
-        body: JSON.stringify(samples, null, 2),
-        contentType: "application/json",
-      });
+    await test.info().attach("actual-speed-samples", {
+      body: JSON.stringify(samples, null, 2),
+      contentType: "application/json",
+    });
 
     // A real 400 ms main-thread stall must expose dropped time and a warning.
     // This uses neither a fake clock nor injected product simulation state.
@@ -258,12 +256,10 @@ test.describe("desktop browser integration", () => {
     });
     expect(overload.dropped).toBeGreaterThan(overload.before);
     expect(overload.status).toContain("推进延迟");
-    test
-      .info()
-      .annotations.push({
-        type: "overload",
-        description: JSON.stringify(overload),
-      });
+    test.info().annotations.push({
+      type: "overload",
+      description: JSON.stringify(overload),
+    });
 
     const passive = page.getByRole("checkbox", { name: /基础供食/ });
     // The visible custom switch is a wrapping label; exercise the user-facing hit target.
@@ -288,7 +284,7 @@ test.describe("mobile viewport and touch emulation", () => {
     page,
   }) => {
     const errors = collectErrors(page);
-    await page.goto("/");
+    await page.goto("./");
     await expectRenderedCanvas(page);
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
